@@ -10,4 +10,4 @@ if __name__ == "__main__":
     print(client.invoke({
         "domain": "前端",
         "text": "介绍浏览器原理"
-    }))
+    })) 
