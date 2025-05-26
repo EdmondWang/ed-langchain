@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c6bf1f-575c-4621-a7c3-20daa3dd6b75" name="Changes" comment="" />
+    <list default="true" id="18c6bf1f-575c-4621-a7c3-20daa3dd6b75" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/demo5-vector-space.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo5-vector-space.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/persist_db/5868e060-9f10-4da9-856b-68d215e5bbad/length.bin" beforeDir="false" afterPath="$PROJECT_DIR$/persist_db/5868e060-9f10-4da9-856b-68d215e5bbad/length.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/persist_db/chroma.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/persist_db/chroma.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,31 +38,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.demo1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo2-prompt-template.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo3-langserve-client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo3-langserve.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo4-langchain-community.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo5-vector-space.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo5.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo6-agent.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;demo6&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/edmond/developer/ws-python/ed-langchain&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.demo1.executor": "Run",
+    "Python.demo2-prompt-template.executor": "Run",
+    "Python.demo3-langserve-client.executor": "Run",
+    "Python.demo3-langserve.executor": "Run",
+    "Python.demo4-langchain-community.executor": "Run",
+    "Python.demo5-vector-space.executor": "Run",
+    "Python.demo5.executor": "Run",
+    "Python.demo6-agent.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging demo6",
+    "last_opened_file_path": "/Users/edmond/developer/ws-python/ed-langchain",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "ts.external.directory.path": "/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
