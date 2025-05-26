@@ -68,7 +68,9 @@ documents = [
 
 # model = SentenceTransformer('moka-ai/m3e-base')
 
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+# embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+
+embeddings = HuggingFaceEmbeddings(model_name="moka-ai/m3e-base")
 
 # Create instance of vector space
 vector_store = Chroma.from_documents(documents=documents, embedding=embeddings, persist_directory='./persist_db')
