@@ -6,141 +6,114 @@ from langchain.chains.retrieval import create_retrieval_chain
 from langchain_chroma import Chroma
 
 from langchain_community.document_loaders import WebBaseLoader
-from langchain_core.prompts import format_document, ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnableWithMessageHistory
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_deepseek import ChatDeepSeek
 from langchain_community.chat_message_histories import ChatMessageHistory
 
+# ========== 0. 配置环境变量（API Key、追踪等） ==========
 os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["LANGSMITH_API_KEY"] = "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"
-os.environ["LANGSMITH_PROJECT"]="ed-langchain"
-os.environ["DEEPSEEK_API_KEY"]="sk-b99a159e8e3046ea9482d13d53e6e23a"
+os.environ["LANGSMITH_PROJECT"] = "ed-langchain"
+os.environ["DEEPSEEK_API_KEY"] = "sk-b99a159e8e3046ea9482d13d53e6e23a"
 
-llm = ChatDeepSeek(model ="deepseek-chat")
+# ========== 1. 初始化大语言模型（LLM） ==========
+llm = ChatDeepSeek(model="deepseek-chat")
 
-#1 Load Document, could be from DB, word, wiki or documents
-loader = WebBaseLoader(
+# ========== 2. 加载网页文档（抓取知识源） ==========
+# 这里只抓取 Angular Signals 指南页面的主要内容
+web_loader = WebBaseLoader(
     web_paths=['https://angular.dev/guide/signals'],
     bs_kwargs=dict(
         parse_only=bs4.SoupStrainer(class_=('docs-app-main-content'))
     )
 )
+raw_documents = web_loader.load()
 
-docs = loader.load()
+# ========== 3. 文本切块（分割大文档为小片段） ==========
+# 为什么要切块？因为大模型输入长度有限，分块后检索和理解更高效
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+chunked_documents = text_splitter.split_documents(raw_documents)
 
-# print(len(docs))
-# print(docs)
+# ========== 4. 文档向量化并存入向量数据库 ==========
+# 用 HuggingFace 的 embedding 模型将文本转为向量，方便后续语义检索
+embedding_model = HuggingFaceEmbeddings(model_name='moka-ai/m3e-base')
+vector_db = Chroma.from_documents(documents=chunked_documents, embedding=embedding_model)
 
-#2 Split text response b/c big document not good for LLM to parse
-"""
-需要切割文本（split text），主要原因有：
+# ========== 5. 创建检索器（Retriever） ==========
+retriever = vector_db.as_retriever()
 
-1. **LLM 输入长度有限**  
-   大语言模型（如 GPT、DeepSeek）每次能处理的文本有“最大 token 限制”（比如 4k、8k、16k tokens），太长会被截断或报错。
-
-2. **提升检索效果**  
-   RAG 检索时，把大文档切成小块，可以更精准地找到与问题相关的片段，提高答案相关性。
-
-3. **减少噪音**  
-   小块文本更聚焦，减少无关内容干扰模型判断。
-
-4. **提升效率**  
-   小块文本 embedding 更快，检索和召回速度也更高。
-
-**总结：**  
-切割文本是为了让 LLM 能高效、准确地处理和理解大文档内容，是 RAG 等应用的标准做法。
-"""
-
-"""
-chunk_overlap 是为了尽量保证每一个 chunk的 语法完整性
-"""
-splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-
-splits = splitter.split_documents(docs)
-
-# for s in splits:
-#     print(f'{s}**\n')
-
-#3 store documents into vector store
-embeddings = HuggingFaceEmbeddings(model_name='moka-ai/m3e-base')
-
-vector_store = Chroma.from_documents(documents=splits,embedding=embeddings)
-
-#4 create retriever
-retriever = vector_store.as_retriever()
-
-#5 create a question template
-system_prompt = """You are an assistant for question-answering tasks.
-Ue the following pieces of retrieved context to answer the question.
-If you don't know the answer, say that you don't know. Use the there sentences maximum and keep the answer concise.\n
+# ========== 6. 构建主问答 Prompt 模板 ==========
+# 这个模板告诉 LLM 如何用检索到的上下文回答问题
+main_qa_system_prompt = """You are an assistant for question-answering tasks.
+Use the following pieces of retrieved context to answer the question.
+If you don't know the answer, say that you don't know. Use three sentences maximum and keep the answer concise.
 {context}
 """
-
-
-prompt = ChatPromptTemplate.from_messages(
-    [
-        ('system',system_prompt),
-        MessagesPlaceholder('chat_history'),
-        ('human', '{input}')
-    ])
-
-#6 create chain, retriever first then combine with LLM to answer question
-chain1 = create_stuff_documents_chain(llm=llm,prompt=prompt)
-
-# chain2 = create_retrieval_chain(retriever=retriever, combine_docs_chain=chain1)
-
-# resp = chain2.invoke({
-#     'input': 'How to understand dependency of computed signal is dynamic?'
-# })
-
-# print(resp)
-
-# create a prompt template for child chain
-contextualize_q_system_prompt = """Given a chat history and the latest user question which might reference context in the chat history,
-formulate a standalone question which can be understood without the chat history. Do NOT answer the question, just reformulate it if needed and otherwise return it as it."""
-
-retriever_history_temp = ChatPromptTemplate.from_messages([
-    ('system', contextualize_q_system_prompt),
+main_qa_prompt = ChatPromptTemplate.from_messages([
+    ('system', main_qa_system_prompt),
     MessagesPlaceholder('chat_history'),
     ('human', '{input}')
 ])
 
-# create child chain
-history_chain = create_history_aware_retriever(llm,retriever, retriever_history_temp)
+# ========== 7. 创建文档拼接链（stuff chain） ==========
+# 负责把检索到的文档片段和问题拼接后交给 LLM 生成答案
+stuff_chain = create_stuff_documents_chain(llm=llm, prompt=main_qa_prompt)
 
-# persist chat history
-store = {}
+# ========== 8. 构建历史感知检索 Prompt ==========
+# 这个模板让 LLM 能理解多轮对话中的上下文引用
+history_aware_system_prompt = """Given a chat history and the latest user question which might reference context in the chat history,
+formulate a standalone question which can be understood without the chat history. Do NOT answer the question, just reformulate it if needed and otherwise return it as it."""
+history_aware_prompt = ChatPromptTemplate.from_messages([
+    ('system', history_aware_system_prompt),
+    MessagesPlaceholder('chat_history'),
+    ('human', '{input}')
+])
 
+# ========== 9. 创建历史感知检索链 ==========
+# 让检索器能理解多轮对话中的上下文引用
+history_aware_retriever_chain = create_history_aware_retriever(
+    llm=llm,
+    retriever=retriever,
+    prompt=history_aware_prompt
+)
+
+# ========== 10. 持久化对话历史（每个 session 独立保存） ==========
+session_history_store = {}
 def get_session_history(session_id: str):
-    if session_id not in store:
-        store[session_id] = ChatMessageHistory()
-    return store[session_id]
+    if session_id not in session_history_store:
+        session_history_store[session_id] = ChatMessageHistory()
+    return session_history_store[session_id]
 
-# create parent chain
-chain = create_retrieval_chain(history_chain, chain1)
+# ========== 11. 串联检索链和生成链，形成完整 RAG 问答流程 ==========
+# 先用历史感知检索链找相关文档，再用 stuff_chain 生成答案
+rag_chain = create_retrieval_chain(history_aware_retriever_chain, stuff_chain)
 
-result_chain = RunnableWithMessageHistory(
-    chain,
+# ========== 12. 支持多轮对话的 RAG Chain ==========
+# RunnableWithMessageHistory 能自动管理对话历史，实现多轮问答
+multi_turn_rag_chain = RunnableWithMessageHistory(
+    rag_chain,
     get_session_history,
     input_messages_key='input',
     history_messages_key='chat_history',
     output_messages_key='answer'
 )
 
-resp1 = result_chain.invoke(
+# ========== 13. 多轮问答示例 ==========
+# 第一次提问
+response1 = multi_turn_rag_chain.invoke(
     {'input': 'What is computed Signal?'},
     config={'configurable': {'session_id': 'zs12345'}}
 )
+print('answer to 1st question:')
+print(response1['answer'])
 
-print('answer to 1st q')
-print(resp1['answer'])
-
-resp2 = result_chain.invoke(
+# 第二次提问（上下文会自动带入）
+response2 = multi_turn_rag_chain.invoke(
     {'input': 'What are common way of creating it?'},
     config={'configurable': {'session_id': 'zs12345'}}
 )
-
-print('answer to 2nd q')
-print(resp2['answer'])
+print('answer to 2nd question:')
+print(response2['answer'])

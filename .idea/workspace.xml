@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18c6bf1f-575c-4621-a7c3-20daa3dd6b75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/demo7-rag.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo7-rag.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo7-rag.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
     "Python.demo7-rag.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "demo7",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/edmond/developer/ws-python/ed-langchain",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
