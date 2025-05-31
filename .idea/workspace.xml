@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="18c6bf1f-575c-4621-a7c3-20daa3dd6b75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo2-prompt-template.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo2-prompt-template.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo3-langserve.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo3-langserve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo4-chat-history.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo4-chat-history.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo5-vector-space.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo5-vector-space.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo6-agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo6-agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo7-rag.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo7-rag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo8-database.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo8-database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +56,10 @@
     "Python.demo5.executor": "Run",
     "Python.demo6-agent.executor": "Run",
     "Python.demo7-rag.executor": "Run",
+    "Python.demo8-database.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "demo8",
     "last_opened_file_path": "/Users/edmond/developer/ws-python/ed-langchain",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -68,14 +76,16 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.demo7-rag">
-    <configuration name="demo3-langserve-client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.demo2-prompt-template">
+    <configuration name="demo1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ed-langchain" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
+        <env name="DEEPSEEK_API_KEY" value="sk-b99a159e8e3046ea9482d13d53e6e23a" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="TAVILY_API_KEY" value="" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -83,7 +93,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo3-langserve-client.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -92,13 +102,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="demo4-langchain-community" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="demo2-prompt-template" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ed-langchain" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
+        <env name="LANGSMITH_API_KEY" value="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" />
+        <env name="DEEPSEEK_API_KEY" value="sk-b99a159e8e3046ea9482d13d53e6e23a" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="TAVILY_API_KEY" value="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" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -106,7 +119,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo4-langchain-community.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo2-prompt-template.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -184,13 +197,44 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="demo8-database" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ed-langchain" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo8-database.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.demo2-prompt-template" />
+      <item itemvalue="Python.demo1" />
+      <item itemvalue="Python.demo5-vector-space" />
+      <item itemvalue="Python.demo6-agent" />
+      <item itemvalue="Python.demo7-rag" />
+      <item itemvalue="Python.demo8-database" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.demo1" />
+        <item itemvalue="Python.demo8-database" />
         <item itemvalue="Python.demo7-rag" />
         <item itemvalue="Python.demo5-vector-space" />
         <item itemvalue="Python.demo6-agent" />
-        <item itemvalue="Python.demo4-langchain-community" />
-        <item itemvalue="Python.demo3-langserve-client" />
       </list>
     </recent_temporary>
   </component>
@@ -219,12 +263,13 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ed_langchain$demo3_langserve_client.coverage" NAME="demo3-langserve-client Coverage Results" MODIFIED="1748100711262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo6_agent.coverage" NAME="demo6-agent Coverage Results" MODIFIED="1748188275768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ed_langchain$demo1.coverage" NAME="demo1 Coverage Results" MODIFIED="1748055142806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ed_langchain$demo1.coverage" NAME="demo1 Coverage Results" MODIFIED="1748653188176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo5.coverage" NAME="demo5-vector-space Coverage Results" MODIFIED="1748184749680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo4_langchain_community.coverage" NAME="demo4-langchain-community Coverage Results" MODIFIED="1748156759315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo5_vector_space.coverage" NAME="demo5-vector-space Coverage Results" MODIFIED="1748268596934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo3_langserve.coverage" NAME="demo3-langserve Coverage Results" MODIFIED="1748099657257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ed_langchain$demo7_rag.coverage" NAME="demo7-rag Coverage Results" MODIFIED="1748442222320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ed_langchain$demo2_prompt_template.coverage" NAME="demo2-prompt-template Coverage Results" MODIFIED="1748097552962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ed_langchain$demo7_rag.coverage" NAME="demo7-rag Coverage Results" MODIFIED="1748443827209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ed_langchain$demo8_database.coverage" NAME="demo8-database Coverage Results" MODIFIED="1748621358322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ed_langchain$demo2_prompt_template.coverage" NAME="demo2-prompt-template Coverage Results" MODIFIED="1748653434532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

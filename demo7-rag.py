@@ -15,9 +15,7 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 
 # ========== 0. 配置环境变量（API Key、追踪等） ==========
 os.environ["LANGSMITH_TRACING"] = "true"
-os.environ["LANGSMITH_API_KEY"] = "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"
 os.environ["LANGSMITH_PROJECT"] = "ed-langchain"
-os.environ["DEEPSEEK_API_KEY"] = "sk-b99a159e8e3046ea9482d13d53e6e23a"
 
 # ========== 1. 初始化大语言模型（LLM） ==========
 llm = ChatDeepSeek(model="deepseek-chat")
