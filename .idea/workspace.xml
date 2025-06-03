@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18c6bf1f-575c-4621-a7c3-20daa3dd6b75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/demo10-load-vector-db-from-disk.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo10-persist-vector-db-to-disk.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/poc-fetch-video-info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo-11-extract-structured-data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +40,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.demo-11-extract-db-data.executor": "Run",
+    "Python.demo-11-extract-structured-data.executor": "Run",
     "Python.demo1.executor": "Run",
     "Python.demo10-load-vector-db-from-disk.executor": "Run",
     "Python.demo10-persist-vector-db-to-disk.executor": "Run",
@@ -59,7 +59,7 @@
     "Python.poc-yt-dlp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "demo10",
+    "git-widget-placeholder": "demo11",
     "last_opened_file_path": "/Users/edmond/developer/ws-python/ed-langchain",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,7 +76,33 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.demo10-load-vector-db-from-disk">
+  <component name="RunManager" selected="Python.demo-11-extract-structured-data">
+    <configuration name="demo-11-extract-structured-data" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="ed-langchain" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DEEPSEEK_API_KEY" value="sk-b99a159e8e3046ea9482d13d53e6e23a" />
+        <env name="LANGSMITH_API_KEY" value="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" />
+        <env name="TAVILY_API_KEY" value="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" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo-11-extract-structured-data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="demo1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ed-langchain" />
       <option name="ENV_FILES" value="" />
@@ -108,9 +134,9 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DEEPSEEK_API_KEY" value="sk-b99a159e8e3046ea9482d13d53e6e23a" />
         <env name="LANGSMITH_API_KEY" value="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" />
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="TAVILY_API_KEY" value="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" />
       </envs>
       <option name="SDK_HOME" value="" />
@@ -134,9 +160,9 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DEEPSEEK_API_KEY" value="sk-b99a159e8e3046ea9482d13d53e6e23a" />
         <env name="LANGSMITH_API_KEY" value="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" />
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="TAVILY_API_KEY" value="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" />
         <env name="http_proxy" value="http://localhost:7890" />
         <env name="https_proxy" value="http://localhost:7890" />
@@ -188,9 +214,9 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DEEPSEEK_API_KEY" value="sk-b99a159e8e3046ea9482d13d53e6e23a" />
         <env name="LANGSMITH_API_KEY" value="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" />
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="TAVILY_API_KEY" value="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" />
       </envs>
       <option name="SDK_HOME" value="" />
@@ -232,6 +258,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.demo-11-extract-structured-data" />
       <item itemvalue="Python.demo2-prompt-template" />
       <item itemvalue="Python.poc-fetch-video-info" />
       <item itemvalue="Python.demo10-load-vector-db-from-disk" />
@@ -288,6 +315,7 @@
     <SUITE FILE_PATH="coverage/ed_langchain$demo10_load_vector_db_from_disk.coverage" NAME="demo10-load-vector-db-from-disk Coverage Results" MODIFIED="1748879255571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo5_vector_space.coverage" NAME="demo5-vector-space Coverage Results" MODIFIED="1748268596934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo3_langserve.coverage" NAME="demo3-langserve Coverage Results" MODIFIED="1748099657257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ed_langchain$demo_11_extract_db_data.coverage" NAME="demo-11-extract-structured-data Coverage Results" MODIFIED="1748963829350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo9_database_agent.coverage" NAME="demo9-database-agent Coverage Results" MODIFIED="1748791016108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$poc_yt_dlp.coverage" NAME="poc-fetch-video-info Coverage Results" MODIFIED="1748878739529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ed_langchain$demo6_agent.coverage" NAME="demo6-agent Coverage Results" MODIFIED="1748188275768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
